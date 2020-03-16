@@ -1341,7 +1341,20 @@
 		
 		public static class ViewProperty
 		{
-			public static class UiTypes
+            public static class Policies
+            {
+                public const string Target = "Target";
+            }
+
+            public static class Targets
+            {
+                public const string Blank = "_blank";
+                public const string Parent = "_parent";
+                public const string Self = "_self";
+                public const string Top = "_top";
+            }
+
+            public static class UiTypes
 			{
 				public const string Autocomplete = "Autocomplete";
 				public const string DownloadCsv = "DownloadCsv";

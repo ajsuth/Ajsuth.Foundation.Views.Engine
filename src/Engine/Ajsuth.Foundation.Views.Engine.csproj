@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <Description>Sitecore Commerce Plugin Views</Description>
-    <VersionPrefix>5.0</VersionPrefix>
+    <VersionPrefix>4.0</VersionPrefix>
     <Authors>Andrew Sutherland</Authors>
     <TargetFramework>net471</TargetFramework>
     <PackageTags>$(PackageTags);Commerce;Plugin;Views</PackageTags>
@@ -10,8 +10,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Sitecore.Commerce.Core" Version="5.0.*" />
-    <PackageReference Include="Sitecore.Commerce.Plugin.Views" Version="5.0.*" />
+    <PackageReference Include="Sitecore.Commerce.Core" Version="4.0.*" />
+    <PackageReference Include="Sitecore.Commerce.Plugin.Views" Version="4.0.*" />
   </ItemGroup>
 
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">

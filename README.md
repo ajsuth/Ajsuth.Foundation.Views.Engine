@@ -8,10 +8,11 @@ Custom Sitecore Commerce views plugin project with extended functionality for th
 - [Disclaimer](#disclaimer)
 
 ## Supported Sitecore Experience Commerce Versions
-- XC 9.3
+- XC 9.2
 
 ## Features
 - [Ui Hints, UI Types, and Icons Constants](#ui-hints-ui-types-and-icons-constants)
+- [Target Attribute Support for Hyperlink Values](#target-attribute-support-for-hyperlink-values)
 
 ### Ui Hints, UI Types, and Icons Constants
 Remove the guessing game and human error by improving development efficiency with the comprehensive list of UI Hint, UI Type, and Icon names stored as constants.
@@ -31,6 +32,27 @@ var viewProperty = new ViewProperty()
 ```
 
 _Sample Usage._
+
+### Target Attribute Support for Hyperlink Values
+Links in BizFx may direct the user away from the current page, counter-intuitive to the flow of user navigation. Enabling the target attribute to be configured for links, specifically for opening links in a new window or tab via the '_blank' value, improves the UX of customisations to the Business Tools.
+
+For the '_blank' target type, the link is opened in a new window or tab and is rendered with a '^' to signify that the link will be opened externally.
+
+**Dependencies:** https://github.com/ajsuth/Ajsuth.BizFx/tree/release/9.2/master
+
+![Blank Target opens link in a new window or tab](./images/blank-target-link.png)
+
+_Sample 'Flat' entity view with various UI Types._
+
+To configure a link, the view property should be configured with a new policy with PolicyId "Target" and single model with Name _\<target type\>_, e.g. "_blank". The plugin Ajsuth.Foundation.Views.Engine contains the view property extension method _SetTargetPolicy()_ and contains constants for available values to improve development.
+
+```
+// Default target value is '_blank'
+entityLinkViewProperty.SetTargetPolicy();
+
+// Specify the target type
+itemLinkViewProperty.SetTargetPolicy(ViewsConstants.ViewProperty.Targets.Self);
+```
 
 ## Installation Instructions
 1. Download the repository.
