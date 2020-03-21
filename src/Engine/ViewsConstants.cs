@@ -1,4 +1,4 @@
-﻿namespace Ajsuth.Foundation.Views
+﻿namespace Ajsuth.Foundation.Views.Engine
 {
     public static class ViewsConstants
     {
@@ -1338,7 +1338,24 @@
 			public const string ZoomIn = "zoom_in";
 			public const string ZoomOut = "zoom_out";
 		}
-		
+        
+        /// <summary>
+        /// The names of the pipelines.
+        /// </summary>
+        public static class Pipelines
+        {
+            /// <summary>
+            /// The names of the pipeline blocks.
+            /// </summary>
+            public static class Blocks
+            {
+                /// <summary>
+				/// The add redirect policy block name.
+				/// </summary>
+				public const string AddRedirectPolicy = "Views.Block.AddRedirectPolicy";
+            }
+        }
+
 		public static class ViewProperty
 		{
             public static class Policies

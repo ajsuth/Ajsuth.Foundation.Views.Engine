@@ -14,7 +14,7 @@ Custom Sitecore Commerce views plugin project with extended functionality for th
 - [Ui Hints, UI Types, and Icons Constants](#ui-hints-ui-types-and-icons-constants)
 - [Custom Entity Links and Custom Item Links](#custom-entity-links-and-custom-item-links)
 - [Target Attribute Support for Hyperlink Values](#target-attribute-support-for-hyperlink-values)
-- [Redirect On Entity Creation](#redirect-on-entity-creation)
+- [Automatic Page Redirect On Entity and Component Creation](#automatic-page-redirect-on-entity-and-component-creation)
 
 ### Ui Hints, UI Types, and Icons Constants
 Remove the guessing game and human error by improving development efficiency with the comprehensive list of UI Hint, UI Type, and Icon names stored as constants.
@@ -23,7 +23,7 @@ Remove the guessing game and human error by improving development efficiency wit
 
 To simplify usage, add the `using static` statement to the constants path.
 ```
-using static Ajsuth.Foundation.Views.ViewsConstants.ViewProperty;
+using static Ajsuth.Foundation.Views.Engine.ViewsConstants.ViewProperty;
 ```
 
 
@@ -107,8 +107,21 @@ entityLinkViewProperty.SetTargetPolicy();
 itemLinkViewProperty.SetTargetPolicy(ViewsConstants.ViewProperty.Targets.Self);
 ```
 
-### Redirect On Entity Creation
-When entities are created via BizFx, the user is automatically redirected to the newly created entity page view. 
+### Automatic Page Redirect On Entity and Component Creation
+When entities and components are created via BizFx, the user is automatically redirected to the entity view page for the newly create entity or component.
+
+Supported Entities:
+- Catalog
+- Category
+- Sellable Item
+- Inventory Set
+- Price Book
+- Price Card
+- Promotion Book
+- Promotion
+
+Supported Components:
+- Price Snapshot
 
 **Dependencies:** https://github.com/ajsuth/Ajsuth.BizFx/tree/release/9.2/master
 

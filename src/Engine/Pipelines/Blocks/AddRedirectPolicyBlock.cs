@@ -15,8 +15,9 @@ namespace Ajsuth.Foundation.Views.Engine.Pipelines.Blocks
     using Sitecore.Framework.Pipelines;
 
     /// <summary>
-    /// Defines the get sellable item view block.
+    /// Defines the add redirect policy view block.
     /// </summary>
+    [PipelineDisplayName(ViewsConstants.Pipelines.Blocks.AddRedirectPolicy)]
     public class AddRedirectPolicyBlock : PipelineBlock<EntityView, EntityView, CommercePipelineExecutionContext>
     {
         private readonly CommerceCommander _commerceCommander;
@@ -45,12 +46,20 @@ namespace Ajsuth.Foundation.Views.Engine.Pipelines.Blocks
             if (!enablementPolicy.RedirectOnCreate ||
                 string.IsNullOrEmpty(request?.ViewName) ||
                 string.IsNullOrEmpty(request?.ForAction) ||
-                !IsAddEntityView(request))
+                (!IsAddEntityView(request) &&
+                !IsAddPriceSnapshot(request)))
             {
                 return await Task.FromResult(arg).ConfigureAwait(false);
             }
 
-            arg.Policies.Add(new Policy { PolicyId = "RedirectPolicy" });
+            if (IsAddEntityView(request))
+            {
+                arg.Policies.Add(new Policy { PolicyId = "RedirectEntityPolicy" });
+            }
+            else if (IsAddPriceSnapshot(request))
+            {
+                arg.Policies.Add(new Policy { PolicyId = "RedirectSnapshotPolicy" });
+            }
 
             return await Task.FromResult(arg).ConfigureAwait(false);
         }
@@ -71,6 +80,12 @@ namespace Ajsuth.Foundation.Views.Engine.Pipelines.Blocks
 
             return request.ViewName.Equals("Details", StringComparison.OrdinalIgnoreCase) &&
                 entityList.Contains(request.ForAction);
+        }
+
+        protected bool IsAddPriceSnapshot(EntityViewArgument request)
+        {
+            return request.ViewName.Equals("PriceSnapshotDetails", StringComparison.OrdinalIgnoreCase) &&
+                request.ForAction.Equals("AddPriceSnapshot", StringComparison.OrdinalIgnoreCase);
         }
     }
 }
