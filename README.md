@@ -14,9 +14,12 @@ Custom Sitecore Commerce views plugin project with extended functionality for th
 - [Ui Hints, UI Types, and Icons Constants](#ui-hints-ui-types-and-icons-constants)
 - [Custom Entity Links and Custom Item Links](#custom-entity-links-and-custom-item-links)
 - [Target Attribute Support for Hyperlink Values](#target-attribute-support-for-hyperlink-values)
+- [Redirect On Entity Creation](#redirect-on-entity-creation)
 
 ### Ui Hints, UI Types, and Icons Constants
 Remove the guessing game and human error by improving development efficiency with the comprehensive list of UI Hint, UI Type, and Icon names stored as constants.
+
+**Enablement Policy Property:** N/A
 
 To simplify usage, add the `using static` statement to the constants path.
 ```
@@ -40,6 +43,8 @@ Custom entity and item links are more flexible than the standard entity and item
 ViewProperty extensions have been included to simply configuring the custom entity/item links.
 
 **Dependencies:** https://github.com/ajsuth/Ajsuth.BizFx/tree/release/9.2/master
+
+**Enablement Policy Property:** N/A
 
 #### Custom Entity Link
 
@@ -86,6 +91,8 @@ For the '_blank' target type, the link is opened in a new window or tab and is r
 
 **Dependencies:** https://github.com/ajsuth/Ajsuth.BizFx/tree/release/9.2/master
 
+**Enablement Policy Property:** N/A
+
 ![Blank Target opens link in a new window or tab](./images/blank-target-link.png)
 
 _Sample 'Flat' entity view with various UI Types._
@@ -100,10 +107,28 @@ entityLinkViewProperty.SetTargetPolicy();
 itemLinkViewProperty.SetTargetPolicy(ViewsConstants.ViewProperty.Targets.Self);
 ```
 
+### Redirect On Entity Creation
+When entities are created via BizFx, the user is automatically redirected to the newly created entity page view. 
+
+**Dependencies:** https://github.com/ajsuth/Ajsuth.BizFx/tree/release/9.2/master
+
+**Enablement Policy Property:** RedirectOnCreate
+
+## Enabling Features
+In the environment configuration files, add the **ViewFeatureEnablementPolicy** and set the desired features to `true`. (See the **Enablement Policy Property** value under each feature). For example:
+```javascript
+{
+	"$type": "Ajsuth.Foundation.Views.Engine.Policies.ViewFeatureEnablementPolicy, Ajsuth.Foundation.Views.Engine",
+	"RedirectOnCreate": true
+}
+```
+
 ## Installation Instructions
 1. Download the repository.
 2. Add the **Ajsuth.Foundation.Views.Engine.csproj** to the _**Sitecore Commerce Engine**_ solution.
 3. Add the **Ajsuth.Foundation.Views.Engine.csproj** as a reference to the desired projects.
+4. Enable desired features, following [Enabling Features](#enabling-features).
+5. Run the _**Sitecore Commerce Engine**_ from Visual Studio or deploy the solution and run from IIS.
 
 ## Known Issues
 | Feature                 | Description | Issue |
