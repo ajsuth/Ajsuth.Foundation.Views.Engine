@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <PackageReference Include="Sitecore.Commerce.Core" Version="4.0.*" />
+    <PackageReference Include="Sitecore.Commerce.Plugin.Catalog" Version="4.0.*" />
     <PackageReference Include="Sitecore.Commerce.Plugin.Views" Version="4.0.*" />
   </ItemGroup>
 

@@ -122,6 +122,7 @@ Supported Entities:
 
 Supported Components:
 - Price Snapshot
+- Variant
 
 **Dependencies:** https://github.com/ajsuth/Ajsuth.BizFx/tree/release/9.2/master
 

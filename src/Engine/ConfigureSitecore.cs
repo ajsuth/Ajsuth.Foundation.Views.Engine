@@ -10,6 +10,7 @@ namespace Ajsuth.Foundation.Views.Engine
     using Microsoft.Extensions.DependencyInjection;
     using Sitecore.Commerce.Core;
     using Sitecore.Commerce.EntityViews;
+    using Sitecore.Commerce.Plugin.Catalog;
     using Sitecore.Framework.Configuration;
     using Sitecore.Framework.Pipelines.Definitions.Extensions;
 
@@ -32,6 +33,11 @@ namespace Ajsuth.Foundation.Views.Engine
             services.Sitecore().Pipelines(config => config
                 .ConfigurePipeline<IGetEntityViewPipeline>(pipeline => pipeline
                     .Add<Pipelines.Blocks.AddRedirectPolicyBlock>().Before<IFormatEntityViewPipeline>()
+                )
+
+                .ConfigurePipeline<ICreateSellableItemVariationPipeline>(pipeline => pipeline
+                    .Add<Pipelines.Blocks.AddPipelineArgumentToContextBlock>().Before<CreateSellableItemVariationBlock>()
+                    .Add<Pipelines.Blocks.AddVariantModelBlock>().After<CreateSellableItemVariationBlock>()
                 )
             );
 

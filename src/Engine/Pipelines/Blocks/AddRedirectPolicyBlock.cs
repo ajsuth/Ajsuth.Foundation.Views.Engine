@@ -47,6 +47,7 @@ namespace Ajsuth.Foundation.Views.Engine.Pipelines.Blocks
                 string.IsNullOrEmpty(request?.ViewName) ||
                 string.IsNullOrEmpty(request?.ForAction) ||
                 (!IsAddEntityView(request) &&
+                !IsAddVariantView(request) &&
                 !IsAddPriceSnapshot(request)))
             {
                 return await Task.FromResult(arg).ConfigureAwait(false);
@@ -55,6 +56,10 @@ namespace Ajsuth.Foundation.Views.Engine.Pipelines.Blocks
             if (IsAddEntityView(request))
             {
                 arg.Policies.Add(new Policy { PolicyId = "RedirectEntityPolicy" });
+            }
+            else if (IsAddVariantView(request))
+            {
+                arg.Policies.Add(new Policy { PolicyId = "RedirectVariantPolicy" });
             }
             else if (IsAddPriceSnapshot(request))
             {
@@ -86,6 +91,12 @@ namespace Ajsuth.Foundation.Views.Engine.Pipelines.Blocks
         {
             return request.ViewName.Equals("PriceSnapshotDetails", StringComparison.OrdinalIgnoreCase) &&
                 request.ForAction.Equals("AddPriceSnapshot", StringComparison.OrdinalIgnoreCase);
+        }
+
+        protected bool IsAddVariantView(EntityViewArgument request)
+        {
+            return request.ViewName.Equals("Variant", StringComparison.OrdinalIgnoreCase) &&
+                request.ForAction.Equals("AddSellableItemVariant", StringComparison.OrdinalIgnoreCase);
         }
     }
 }

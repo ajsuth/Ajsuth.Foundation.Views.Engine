@@ -1353,6 +1353,16 @@
 				/// The add redirect policy block name.
 				/// </summary>
 				public const string AddRedirectPolicy = "Views.Block.AddRedirectPolicy";
+
+                /// <summary>
+				/// The add pipeline argument to context block name.
+				/// </summary>
+				public const string AddPipelineArgumentToContext = "Views.Block.AddPipelineArgumentToContext";
+
+                /// <summary>
+				/// The add variant model block name.
+				/// </summary>
+				public const string AddVariantModel = "Views.Block.AddVariantModel";
             }
         }
 
