@@ -12,6 +12,7 @@ Custom Sitecore Commerce views plugin project with extended functionality for th
 
 ## Features
 - [Ui Hints, UI Types, and Icons Constants](#ui-hints-ui-types-and-icons-constants)
+- [Custom Entity Links and Custom Item Links](#custom-entity-links-and-custom-item-links)
 - [Target Attribute Support for Hyperlink Values](#target-attribute-support-for-hyperlink-values)
 
 ### Ui Hints, UI Types, and Icons Constants
@@ -32,6 +33,51 @@ var viewProperty = new ViewProperty()
 ```
 
 _Sample Usage._
+
+### Custom Entity Links and Custom Item Links
+Custom entity and item links are more flexible than the standard entity and item links as they allow the configurations to be specified at the view property level with a fallback to the entity view values where values have not been specified. This allows entity views to contain multiple links under a single entity view that resolve to different routes.
+
+ViewProperty extensions have been included to simply configuring the custom entity/item links.
+
+**Dependencies:** https://github.com/ajsuth/Ajsuth.BizFx/tree/release/9.2/master
+
+#### Custom Entity Link
+
+The custom entity link will render _\<domain\>/entityView/Master/\<entity version\>/\<entity id\>_ 
+
+e.g. _https://bizfx.local/entityView/Master/2/Entity-SellableItem-12345_
+
+```
+var customEntityLink = new ViewProperty
+{
+    Name = "Custom Entity Link",
+    Value = "Custom Entity Link"
+};
+customEntityLink.SetCustomEntityLink(2, "Entity-SellableItem-12345");
+entityView.Properties.Add(customEntityLink);
+```
+
+_Sample Custom Entity Link Usage._
+
+#### Custom Item Link
+
+The custom item link will render _\<domain\>/entityView/\<view name\>/\<entity version\>/\<entity id\>/\<item id\>_ 
+
+e.g. _https://bizfx.local/entityView/MyView/3/Entity-SellableItem-12345/67890_
+
+```
+var customItemLink = new ViewProperty
+{
+    Name = "Custom Item Link",
+    Value = "Custom Item Link"
+};
+customItemLink.SetCustomItemLink("MyView", 3, "Entity-SellableItem-12345", "67890");
+// OR
+// customItemLink.SetCustomItemLink("MyView", 3, "Entity-SellableItem-12345|67890");
+entityView.Properties.Add(customItemLink);
+```
+
+_Sample Custom Item Link Usage._
 
 ### Target Attribute Support for Hyperlink Values
 Links in BizFx may direct the user away from the current page, counter-intuitive to the flow of user navigation. Enabling the target attribute to be configured for links, specifically for opening links in a new window or tab via the '_blank' value, improves the UX of customisations to the Business Tools.

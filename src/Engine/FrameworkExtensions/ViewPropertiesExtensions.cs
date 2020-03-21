@@ -51,5 +51,127 @@ namespace Ajsuth.Foundation.Views.Engine.FrameworkExtensions
         {
             instance.SetTargetPolicy(ViewsConstants.ViewProperty.Targets.Blank);
         }
+
+        /// <summary>
+        /// Configures a ViewProperty's UiType and policies to support the custom entity link.
+        /// </summary>
+        /// <param name="instance">The view property.</param>
+        /// <param name="entityVersion">The entity version.</param>
+        /// <param name="entityId">The entity identifier.</param>
+        /// <returns></returns>
+        public static void SetCustomEntityLink(this ViewProperty instance, int? entityVersion = null, string entityId = null)
+        {
+            if (instance == null)
+            {
+                return;
+            }
+
+            instance.UiType = ViewsConstants.ViewProperty.UiTypes.CustomEntityLink;
+
+            if (entityVersion != null)
+            {
+                instance.Policies.Add(
+                new Policy
+                {
+                    PolicyId = ViewsConstants.ViewProperty.Policies.EntityVersion,
+                    Models = new List<Model>
+                    {
+                        new Model { Name = entityVersion.ToString() }
+                    }
+                });
+            }
+
+            if (!string.IsNullOrWhiteSpace(entityId))
+            {
+                instance.Policies.Add(
+                new Policy
+                {
+                    PolicyId = ViewsConstants.ViewProperty.Policies.EntityId,
+                    Models = new List<Model>()
+                    {
+                        new Model { Name = entityId }
+                    }
+                });
+            }
+        }
+
+        /// <summary>
+        /// Configures a ViewProperty's UiType and policies to support the custom item link.
+        /// </summary>
+        /// <param name="instance">The view property.</param>
+        /// <param name="viewName">The entity view name.</param>
+        /// <param name="entityVersion">The entity version.</param>
+        /// <param name="entityId">The entity identifier.</param>
+        /// <param name="itemId">The item identifier.</param>
+        /// <returns></returns>
+        public static void SetCustomItemLink(this ViewProperty instance, string viewName = null, int? entityVersion = null, string entityId = null, string itemId = null)
+        {
+            if (string.IsNullOrWhiteSpace(entityId) || string.IsNullOrWhiteSpace(itemId))
+            {
+                instance.SetCustomItemLink(viewName, entityVersion, null);
+            }
+            else
+            {
+                instance.SetCustomItemLink(viewName, entityVersion, $"{entityId}|{itemId}");
+            }
+        }
+
+        /// <summary>
+        /// Configures a ViewProperty's UiType and policies to support the custom item link.
+        /// </summary>
+        /// <param name="instance">The view property.</param>
+        /// <param name="viewName">The entity view name.</param>
+        /// <param name="entityVersion">The entity version.</param>
+        /// <param name="itemId">The item identifier.</param>
+        /// <returns></returns>
+        public static void SetCustomItemLink(this ViewProperty instance, string viewName, int? entityVersion, string itemId)
+        {
+            if (instance == null)
+            {
+                return;
+            }
+
+            instance.UiType = ViewsConstants.ViewProperty.UiTypes.CustomItemLink;
+            
+            if (!string.IsNullOrWhiteSpace(viewName))
+            {
+                instance.Policies.Add(
+                new Policy
+                {
+                    PolicyId = ViewsConstants.ViewProperty.Policies.ViewName,
+                    Models = new List<Model>
+                    {
+                        new Model { Name = viewName }
+                    }
+                });
+            }
+
+            if (entityVersion != null)
+            {
+                instance.Policies.Add(
+                new Policy
+                {
+                    PolicyId = ViewsConstants.ViewProperty.Policies.EntityVersion,
+                    Models = new List<Model>
+                    {
+                        new Model { Name = entityVersion.ToString() }
+                    }
+                });
+            }
+
+            if (!string.IsNullOrWhiteSpace(itemId))
+            {
+                instance.Policies.Add(
+                new Policy
+                {
+                    PolicyId = ViewsConstants.ViewProperty.Policies.ItemId,
+                    Models = new List<Model>
+                    {
+                        new Model { Name = itemId }
+                    }
+                });
+            }
+        }
+
     }
 }

@@ -1343,7 +1343,11 @@
 		{
             public static class Policies
             {
+                public const string EntityId = "EntityId";
+                public const string EntityVersion = "EntityVersion";
+                public const string ItemId = "ItemId";
                 public const string Target = "Target";
+                public const string ViewName = "ViewName";
             }
 
             public static class Targets
@@ -1357,7 +1361,9 @@
             public static class UiTypes
 			{
 				public const string Autocomplete = "Autocomplete";
-				public const string DownloadCsv = "DownloadCsv";
+                public const string CustomEntityLink = "CustomEntityLink";
+                public const string CustomItemLink = "CustomItemLink";
+                public const string DownloadCsv = "DownloadCsv";
 				public const string Dropdown = "Dropdown";
 				public const string EntityLink = "EntityLink";
 				public const string FullDateTime = "FullDateTime";
