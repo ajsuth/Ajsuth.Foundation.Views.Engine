@@ -15,6 +15,7 @@ Custom Sitecore Commerce views plugin project with extended functionality for th
 - [Custom Entity Links and Custom Item Links](#custom-entity-links-and-custom-item-links)
 - [Target Attribute Support for Hyperlink Values](#target-attribute-support-for-hyperlink-values)
 - [Automatic Page Redirect On Entity and Component Creation](#automatic-page-redirect-on-entity-and-component-creation)
+- [Description Tooltip for View Properties](#description-tooltip-for-view-properties)
 
 ### Ui Hints, UI Types, and Icons Constants
 Remove the guessing game and human error by improving development efficiency with the comprehensive list of UI Hint, UI Type, and Icon names stored as constants.
