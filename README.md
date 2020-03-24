@@ -128,6 +128,26 @@ Supported Components:
 
 **Enablement Policy Property:** RedirectOnCreate
 
+### Description Tooltip for View Properties
+Improved UX for form input fields, rendering description tooltips on mouse hover to provide context and facilitate data entry for business users.
+
+**Dependencies:** https://github.com/ajsuth/Ajsuth.BizFx/tree/release/9.2/master
+
+**Enablement Policy Property:** N/A
+
+![Description tooltip](./images/view-property-description-tooltip.png)
+
+_Sample description tooltip in modal view._
+
+The view property descriptions can be entered into the **Description** field of the commerce term Sitecore item in the Content Editor under
+_/sitecore/Commerce/Commerce Control Panel/Commerce Engine Settings/Commerce Terms/BusinessTools/ViewPropertyNames/\<View Property Name\>_.
+
+**Note:** The Description field for these commerce terms will need to be filled in manually as they are not populated by default.
+
+![View property description](./images/view-property-description.png)
+
+_Sample view property commerce term._
+
 ## Enabling Features
 In the environment configuration files, add the **ViewFeatureEnablementPolicy** and set the desired features to `true`. (See the **Enablement Policy Property** value under each feature). For example:
 ```javascript

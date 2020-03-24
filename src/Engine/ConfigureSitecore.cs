@@ -39,6 +39,11 @@ namespace Ajsuth.Foundation.Views.Engine
                     .Add<Pipelines.Blocks.AddPipelineArgumentToContextBlock>().Before<CreateSellableItemVariationBlock>()
                     .Add<Pipelines.Blocks.AddVariantModelBlock>().After<CreateSellableItemVariationBlock>()
                 )
+
+                .ConfigurePipeline<IFormatEntityViewPipeline>(pipeline => pipeline
+                    .Add<Pipelines.Blocks.LocalizeEntityViewBlock>().After<LocalizeEntityViewBlock>()
+                )
+                
             );
 
             services.RegisterAllCommands(assembly);

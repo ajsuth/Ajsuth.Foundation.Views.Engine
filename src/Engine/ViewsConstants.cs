@@ -1363,6 +1363,11 @@
 				/// The add variant model block name.
 				/// </summary>
 				public const string AddVariantModel = "Views.Block.AddVariantModel";
+
+                /// <summary>
+                /// The localize entity view block name.
+                /// </summary>
+                public const string LocalizeEntityView = "Views.Block.LocalizeEntityView";
             }
         }
 
