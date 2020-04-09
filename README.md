@@ -8,7 +8,8 @@ Custom Sitecore Commerce views plugin project with extended functionality for th
 - [Disclaimer](#disclaimer)
 
 ## Supported Sitecore Experience Commerce Versions
-- XC 9.2
+- [XC 9.2 (documentation here)](https://github.com/ajsuth/Ajsuth.Foundation.Views.Engine/tree/release/9.2/master)
+- XC 9.3
 
 ## Features
 - [Ui Hints, UI Types, and Icons Constants](#ui-hints-ui-types-and-icons-constants)
@@ -43,7 +44,7 @@ Custom entity and item links are more flexible than the standard entity and item
 
 ViewProperty extensions have been included to simply configuring the custom entity/item links.
 
-**Dependencies:** https://github.com/ajsuth/Ajsuth.BizFx/tree/release/9.2/master
+**Dependencies:** [Ajsuth.BizFx](https://github.com/ajsuth/Ajsuth.BizFx/tree/release/9.3/master)
 
 **Enablement Policy Property:** N/A
 
@@ -90,7 +91,7 @@ Links in BizFx may direct the user away from the current page, counter-intuitive
 
 For the '_blank' target type, the link is opened in a new window or tab and is rendered with a '^' to signify that the link will be opened externally.
 
-**Dependencies:** https://github.com/ajsuth/Ajsuth.BizFx/tree/release/9.2/master
+**Dependencies:** [Ajsuth.BizFx](https://github.com/ajsuth/Ajsuth.BizFx/tree/release/9.3/master)
 
 **Enablement Policy Property:** N/A
 
@@ -125,14 +126,14 @@ Supported Components:
 - Price Snapshot
 - Variant
 
-**Dependencies:** https://github.com/ajsuth/Ajsuth.BizFx/tree/release/9.2/master
+**Dependencies:** [Ajsuth.BizFx](https://github.com/ajsuth/Ajsuth.BizFx/tree/release/9.3/master)
 
 **Enablement Policy Property:** RedirectOnCreate
 
 ### Description Tooltip for View Properties
 Improved UX for form input fields, rendering description tooltips on mouse hover to provide context and facilitate data entry for business users.
 
-**Dependencies:** https://github.com/ajsuth/Ajsuth.BizFx/tree/release/9.2/master
+**Dependencies:** [Ajsuth.BizFx](https://github.com/ajsuth/Ajsuth.BizFx/tree/release/9.3/master)
 
 **Enablement Policy Property:** N/A
 
