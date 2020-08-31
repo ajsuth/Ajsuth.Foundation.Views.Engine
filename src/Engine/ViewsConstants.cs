@@ -2,20 +2,21 @@
 {
     public static class ViewsConstants
     {
-		public static class EntityActionView
+		public static class EntityActionViews
 		{
-			public static class UiHint
+			public static class UiHints
 			{
 				public const string RelatedList = "RelatedList";
 			}
 		}
 
-		public static class EntityView
+		public static class EntityViews
 		{
-			public static class UiHint
+			public static class UiHints
 			{
 				public const string BraintreePayment = "BraintreePayment";
-				public const string Flat = "Flat";
+                public const string CustomSearch = "CustomSearch";
+                public const string Flat = "Flat";
 				public const string Grid = "Grid";
 				public const string List = "List";
 				public const string MediaPicker = "MediaPicker";
@@ -1371,11 +1372,19 @@
             }
         }
 
-		public static class ViewProperty
-		{
+		public static class ViewProperties
+        {
+
+            public static class OriginalTypes
+            {
+                public const string Html = "Html";
+                public const string List = "List";
+            }
+
             public static class Policies
             {
                 public const string EntityId = "EntityId";
+                public const string EntityType = "EntityType";
                 public const string EntityVersion = "EntityVersion";
                 public const string ItemId = "ItemId";
                 public const string Target = "Target";
@@ -1396,15 +1405,12 @@
                 public const string CustomEntityLink = "CustomEntityLink";
                 public const string CustomItemLink = "CustomItemLink";
                 public const string DownloadCsv = "DownloadCsv";
-				public const string Dropdown = "Dropdown";
 				public const string EntityLink = "EntityLink";
 				public const string FullDateTime = "FullDateTime";
 				public const string Html = "Html";
 				public const string ItemLink = "ItemLink";
 				public const string List = "List";
-				public const string Options = "Options";
 				public const string MultiLine = "MultiLine";
-				public const string Product = "Product";
 				public const string RichText = "RichText";
 				public const string SelectList = "SelectList";
 				public const string Sortable = "Sortable";

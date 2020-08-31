@@ -75,6 +75,11 @@ namespace Ajsuth.Foundation.Views.Engine.Pipelines.Blocks
                     .Run(new ViewLocalizedTermArgument(property.Name.Replace(".", string.Empty), "ViewPropertyName"), context)
                     .ConfigureAwait(false);
 
+                if (descriptionTerm == null)
+                {
+                    return;
+                }
+
                 policy.Models.Add(new Model() { Name = descriptionTerm?.Description ?? string.Empty });
 
                 property.Policies.Add(policy);

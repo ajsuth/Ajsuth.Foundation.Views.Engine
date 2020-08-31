@@ -1,5 +1,5 @@
 ﻿//  --------------------------------------------------------------------------------------------------------------------
-//  <copyright file="ViewPropertiesExtensions.cs" company="Sitecore Corporation">
+//  <copyright file="ViewPropertyExtensions.cs" company="Sitecore Corporation">
 //    Copyright (c) Sitecore Corporation 1999-2020
 //  </copyright>
 //  --------------------------------------------------------------------------------------------------------------------
@@ -13,7 +13,7 @@ namespace Ajsuth.Foundation.Views.Engine.FrameworkExtensions
     /// <summary>
     /// Extension methods for the <see cref="ViewProperty"/> type.
     /// </summary>
-    public static class ViewPropertiesExtensions
+    public static class ViewPropertyExtensions
     {
         /// <summary>
         /// Configures a ViewProperty to include the target policy with target value. Intended for usage for UI Types of EntityLink, ItemLink, and SubItemLink.
@@ -30,7 +30,7 @@ namespace Ajsuth.Foundation.Views.Engine.FrameworkExtensions
 
             instance.Policies.Add(new Policy
             {
-                PolicyId = ViewsConstants.ViewProperty.Policies.Target,
+                PolicyId = ViewsConstants.ViewProperties.Policies.Target,
                 Models = new List<Model>
                     {
                         new Model
@@ -49,7 +49,7 @@ namespace Ajsuth.Foundation.Views.Engine.FrameworkExtensions
         /// <returns></returns>
         public static void SetTargetPolicy(this ViewProperty instance)
         {
-            instance.SetTargetPolicy(ViewsConstants.ViewProperty.Targets.Blank);
+            instance.SetTargetPolicy(ViewsConstants.ViewProperties.Targets.Blank);
         }
 
         /// <summary>
@@ -66,14 +66,14 @@ namespace Ajsuth.Foundation.Views.Engine.FrameworkExtensions
                 return;
             }
 
-            instance.UiType = ViewsConstants.ViewProperty.UiTypes.CustomEntityLink;
+            instance.UiType = ViewsConstants.ViewProperties.UiTypes.CustomEntityLink;
 
             if (entityVersion != null)
             {
                 instance.Policies.Add(
                 new Policy
                 {
-                    PolicyId = ViewsConstants.ViewProperty.Policies.EntityVersion,
+                    PolicyId = ViewsConstants.ViewProperties.Policies.EntityVersion,
                     Models = new List<Model>
                     {
                         new Model { Name = entityVersion.ToString() }
@@ -86,7 +86,7 @@ namespace Ajsuth.Foundation.Views.Engine.FrameworkExtensions
                 instance.Policies.Add(
                 new Policy
                 {
-                    PolicyId = ViewsConstants.ViewProperty.Policies.EntityId,
+                    PolicyId = ViewsConstants.ViewProperties.Policies.EntityId,
                     Models = new List<Model>()
                     {
                         new Model { Name = entityId }
@@ -131,14 +131,14 @@ namespace Ajsuth.Foundation.Views.Engine.FrameworkExtensions
                 return;
             }
 
-            instance.UiType = ViewsConstants.ViewProperty.UiTypes.CustomItemLink;
+            instance.UiType = ViewsConstants.ViewProperties.UiTypes.CustomItemLink;
             
             if (!string.IsNullOrWhiteSpace(viewName))
             {
                 instance.Policies.Add(
                 new Policy
                 {
-                    PolicyId = ViewsConstants.ViewProperty.Policies.ViewName,
+                    PolicyId = ViewsConstants.ViewProperties.Policies.ViewName,
                     Models = new List<Model>
                     {
                         new Model { Name = viewName }
@@ -151,7 +151,7 @@ namespace Ajsuth.Foundation.Views.Engine.FrameworkExtensions
                 instance.Policies.Add(
                 new Policy
                 {
-                    PolicyId = ViewsConstants.ViewProperty.Policies.EntityVersion,
+                    PolicyId = ViewsConstants.ViewProperties.Policies.EntityVersion,
                     Models = new List<Model>
                     {
                         new Model { Name = entityVersion.ToString() }
@@ -164,7 +164,7 @@ namespace Ajsuth.Foundation.Views.Engine.FrameworkExtensions
                 instance.Policies.Add(
                 new Policy
                 {
-                    PolicyId = ViewsConstants.ViewProperty.Policies.ItemId,
+                    PolicyId = ViewsConstants.ViewProperties.Policies.ItemId,
                     Models = new List<Model>
                     {
                         new Model { Name = itemId }
