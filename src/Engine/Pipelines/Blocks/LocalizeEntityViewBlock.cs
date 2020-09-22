@@ -23,7 +23,7 @@ namespace Ajsuth.Foundation.Views.Engine.Pipelines.Blocks
     ///     </cref>
     /// </seealso>
     [PipelineDisplayName(Engine.ViewsConstants.Pipelines.Blocks.LocalizeEntityView)]
-    public class LocalizeEntityViewBlock : PipelineBlock<EntityView, EntityView, CommercePipelineExecutionContext>
+    public class LocalizeEntityViewBlock : AsyncPipelineBlock<EntityView, EntityView, CommercePipelineExecutionContext>
     {
         private readonly CommerceCommander Commander;
 
@@ -44,7 +44,7 @@ namespace Ajsuth.Foundation.Views.Engine.Pipelines.Blocks
         /// <returns>
         /// The <see cref="EntityView" />.
         /// </returns>
-        public override async Task<EntityView> Run(EntityView arg, CommercePipelineExecutionContext context)
+        public override async Task<EntityView> RunAsync(EntityView arg, CommercePipelineExecutionContext context)
         {
             Condition.Requires(arg).IsNotNull($"{Name}: The entityView cannot be null.");
 
@@ -72,12 +72,12 @@ namespace Ajsuth.Foundation.Views.Engine.Pipelines.Blocks
                 policy = new Policy { PolicyId = "Description" };
                 
                 var descriptionTerm = await Commander.Pipeline<IGetEntityViewLocalizedTermPipeline>()
-                    .Run(new ViewLocalizedTermArgument(property.Name.Replace(".", string.Empty), "ViewPropertyName"), context)
+                    .RunAsync(new ViewLocalizedTermArgument(property.Name.Replace(".", string.Empty), "ViewPropertyName"), context)
                     .ConfigureAwait(false);
 
                 if (descriptionTerm == null)
                 {
-                    return;
+                    continue;
                 }
 
                 policy.Models.Add(new Model() { Name = descriptionTerm?.Description ?? string.Empty });

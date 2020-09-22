@@ -9,13 +9,12 @@ Custom Sitecore Commerce views plugin project with extended functionality for th
 
 ## Supported Sitecore Experience Commerce Versions
 - [XC 9.2 (documentation here)](https://github.com/ajsuth/Ajsuth.Foundation.Views.Engine/tree/release/9.2/master)
-- XC 9.3
+- [XC 9.3 (documentation here)](https://github.com/ajsuth/Ajsuth.Foundation.Views.Engine/tree/release/9.3/master)
 
 ## Features
 - [Ui Hints, UI Types, and Icons Constants](#ui-hints-ui-types-and-icons-constants)
 - [Custom Entity Links and Custom Item Links](#custom-entity-links-and-custom-item-links)
 - [Target Attribute Support for Hyperlink Values](#target-attribute-support-for-hyperlink-values)
-- [Automatic Page Redirect On Entity and Component Creation](#automatic-page-redirect-on-entity-and-component-creation)
 - [Description Tooltip for View Properties](#description-tooltip-for-view-properties)
 
 ### Ui Hints, UI Types, and Icons Constants
@@ -108,27 +107,6 @@ entityLinkViewProperty.SetTargetPolicy();
 // Specify the target type
 itemLinkViewProperty.SetTargetPolicy(ViewsConstants.ViewProperty.Targets.Self);
 ```
-
-### Automatic Page Redirect On Entity and Component Creation
-When entities and components are created via BizFx, the user is automatically redirected to the entity view page for the newly create entity or component.
-
-Supported Entities:
-- Catalog
-- Category
-- Sellable Item
-- Inventory Set
-- Price Book
-- Price Card
-- Promotion Book
-- Promotion
-
-Supported Components:
-- Price Snapshot
-- Variant
-
-**Dependencies:** [Ajsuth.BizFx](https://github.com/ajsuth/Ajsuth.BizFx/tree/release/9.3/master)
-
-**Enablement Policy Property:** RedirectOnCreate
 
 ### Description Tooltip for View Properties
 Improved UX for form input fields, rendering description tooltips on mouse hover to provide context and facilitate data entry for business users.
